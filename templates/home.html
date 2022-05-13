@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h3>{{ Msg }}</h3>
+    <div class="portfolio">
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticker in tickers %}
+                <tr>
+                    <td>{{ ticker["Symbol"] | upper }}</td>
+                    <td>{{ search(ticker["Symbol"])["name"] }}</td>
+                    <td>{{ ticker["SUM(Shares)"] }}</td>
+                    <td>{{ search(ticker["Symbol"])["price"] | usd }}</td>
+                    <td>{{ ((ticker["SUM(Shares)"]) * search(ticker["Symbol"])["price"]) | usd }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                    <td class="border-0 text-end"> {{ cash | usd }} </td>
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                    <td class="border-0 w-bold text-end"> {{ (cash + sum) | usd }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="portfolio">
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticker in tickers %}
+                <tr>
+                    <td>{{ ticker["Symbol"] | upper }}</td>
+                    <td>{{ ticker["Shares"] }}</td>
+                    <td>{{ ticker["Price"] | usd }}</td>
+                    <td>{{ ticker["Transacted"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
