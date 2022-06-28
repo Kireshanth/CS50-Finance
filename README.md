@@ -5,7 +5,7 @@
 
 This application was the 9th week's exercise of Harvard's CS50 - Introduction to Computer Science online course. You can learn more about CS50 at [Harvard's CS50](https://cs50.harvard.edu/x/2022/psets/9/finance/).
 
-A stock trading web app that allows users to create an account and micmic a stock brokearge account, allowing them to look up real time quotes, purchase and sell stocks.
+A stock trading web app that allows users to create an account and simulate a stock brokerage account, allowing them to look up real time quotes, purchase and sell stocks.
 
 <h1>Stack</h1>
 
